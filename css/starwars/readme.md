@@ -37,3 +37,4 @@
    - 1% 时间差 画龙点睛
    - transform - style : perspective-3d 开启3d支持
      perspective:800px; 视点，眼睛离屏幕的距离
+   - inline 元素不支持transform，display 属性切换为inline-block

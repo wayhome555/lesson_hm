@@ -93,9 +93,12 @@ img{
 }
 .star {
     /*动画名字 + keyframes 定义动画*/
-    animation: star 10s infinite alternate;
+    animation: star 10s ease-out infinite;
 }
-
+.wars {
+    /*动画名字 + keyframes 定义动画*/
+    animation: wars 10s ease-out infinite;
+}
 @keyframes star {
     0%{
         opacity: 0;
@@ -104,12 +107,64 @@ img{
     20%{
         opacity: 1;
     }
-    80%{
+    88%{
         opacity: 1;
         transform: scale(1);
     }
     100%{
         opacity: 0;
         transform: translateZ(-1000em);
+    }
+}
+@keyframes wars {
+    0%{
+        opacity: 0;
+        transform: scale(1.5) translateY(0.5em);
+    }
+    20%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translateZ(-1000em);
+    }
+}
+.byline{
+    animation: move-byline 10s linear infinite;
+}
+.byline span{
+    animation: spin-letters 10s linear infinite;
+}
+.byline span{
+    display: inline-block;
+}
+
+@keyframes move-byline {
+    0%{
+        transform: translateZ(5em);
+    }
+    
+    100%{
+        transform: translateZ(0em);
+    }
+}
+@keyframes spin-letters {
+    0%,10%{
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+    30%{
+        opacity: 1;
+    }
+    70%,86%{
+        transform: rotateY(0);
+        opacity: 1;
+    }
+    95%,100%{
+        opacity: 0;
     }
 }

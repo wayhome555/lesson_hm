@@ -28,3 +28,12 @@
      y 垂直移动 上负下正
   - 背景大法
    盒子在页面的占位会出来
+
+  - css 动画
+   - animation
+   - keyframes 
+   - transform scale translateY
+   - 飞船模拟动画 逼真
+   - 1% 时间差 画龙点睛
+   - transform - style : perspective-3d 开启3d支持
+     perspective:800px; 视点，眼睛离屏幕的距离

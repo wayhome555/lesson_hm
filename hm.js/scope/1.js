@@ -1,8 +1,6 @@
 // ReferenceError: b is not defined
-function foo(a){
-    b = a;
-    console.log(a+b);
-    /*b = a;*/
-    console.log(b);
+function foo(){
+    a = 2;
 }
-foo(1);
+
+console.log(foo());

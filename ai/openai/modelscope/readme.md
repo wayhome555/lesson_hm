@@ -38,4 +38,3 @@ semantic_cls = Pipeline(Tasks.text_classification, model='damo/nlp_structbert_se
    输入 -> LLM -> 输出
 
 - LLM 需要算力，来自GPU
-

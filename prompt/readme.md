@@ -14,4 +14,7 @@
   - key 不能在代码中以明文出现
   - 项目根目录下添加一个.env文件,包含key等信息
   - 不能提交到github 找到.gitignore 中添加这类文件的声明
-  - dotenv.config() 将.env 读入process.env 中
+  - dotenv.config() 将.env 读入process.env 对象中
+
+- 了解prompt设计模式，开发功能需求prompt模板，AI应用
+  - 总结模板

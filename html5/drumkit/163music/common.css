@@ -27,13 +27,6 @@ html,body {
     height:100%;
 }
 
-.swiper-slide{
-    background-color: green;
-}
-
-.swiper-slide:nth-child(odd){
-    background-color: pink ;
-}
 .next-view-c{
     z-index:999;
     background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/gx.4ae36e08269404412ecdb99e9453ca17.svg);

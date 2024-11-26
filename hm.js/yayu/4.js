@@ -5,5 +5,14 @@ function Person(name,age){
     this.name = name;
     this.age = age;
 }
+// 每个函数都有一个原型对象
+Person.prototype ={
+    eat:function(){
+        console.log(`${this.name} eat`);
+    }
+}
 
-const wen =new Person("wen",18);
+const xck =new Person("xck",18);
+xck.eat();
+const xql = new Person("xql",19);
+xql.eat();

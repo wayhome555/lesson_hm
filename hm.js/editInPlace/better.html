@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>面向对象的editInPlace</title>
+    <style>
+        .editable {
+            border: 1px solid #ccc;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
-    </div>
+    <div id="app"></div>
     <script src="./editInPlace.js"></script>
     <script>
-    // 流程代码，走向面向对象的封装
-    new EditInPlace(
-        'ep1',
-        document.getElementById('app'),
-        '这个家伙很懒，什么都没有留下'
-    )
-    new EditInPlace(
-        'ep2',
-        document.getElementById('app'),
-        '这个家伙很懒，什么都没有留下'
-    )
+        // 初始化 EditInPlace 对象
+        new EditInPlace(
+            'ep1',
+            document.getElementById('app'),
+            '这个家伙很懒，什么都没有留下'
+        );
     </script>
 </body>
 </html>

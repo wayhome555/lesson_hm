@@ -1,0 +1,19 @@
+{
+    "users":[
+        {
+            "id":1,
+            "name":"gyx",
+            "hometown":"南昌"
+        },
+        {
+            "id":2,
+            "name":"pw",
+            "hometown":"宜春"
+        },
+        {
+            "id":3,
+            "name":"xc",
+            "hometown":"宜春"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手写setInterval</title>
+</head>
+<body>
+    <script>
+        function customSetInterval(fn,t){
+            let intervalId = null;
+            function loop(){
+                intervalId = setTimeout(()=>{fn();loop();},t)
+            }
+            loop();
+            return ()=> clearTimeout(intervalId)
+        }
+
+       const interval = customSetInterval(function(){console.log(123)},1000)
+
+       setTimeout(()=>{interval()},5000)
+    </script>
+</body>
+</html>

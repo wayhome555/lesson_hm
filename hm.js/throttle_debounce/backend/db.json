@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "thq"
+    },
+    {
+      "id": "2",
+      "name": "xkw"
+    },
+    {
+      "id": "3",
+      "name": "wr"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "apiFox",
+      "content": "post1 content",
+      "userId": 1
+    }
+  ]
+}

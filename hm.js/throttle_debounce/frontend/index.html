@@ -14,20 +14,46 @@
         placeholder="请输入要搜索的用户名字"
         >
     </div>
+    <ul id="users">
+    </ul>
     <script>
+        const oUL = document.querySelector('#users');
         // 通往后端接口
         const oInput = document.getElementById('unDebounceInput');
-        // 当作为事件的处理函数来用时 this 指向事件的目标元素
-        oInput.addEventListener('keyup', function() {
-            //console.log('用户输入', this.value);
+
+        function handleNameSearch(){
+            let value = oInput.value.trim();
+            if(value === ''){
+                oUL.innerHTML = '';
+                return;
+            }
             fetch('http://localhost:3001/users')
             .then(res => res.json())
             .then(users =>{
-                //console.log(users);
-                const filterUsers = users.filter(user => user.name.includes(this.value))
-                console.log(filterUsers);
+                // => + filter 过滤
+                const filterUsers = users.filter(user => {return user.name.includes(value)})
+                oUL.innerHTML = filterUsers.map(user => 
+                    `
+                    <li>
+                       ${user.name}
+                    </li>
+                    `
+                ).join('');
             })
-        })
+        }
+       
+        function debounce(fn,delay){
+            return function(){
+                // 对fn限流 神之一手
+                clearTimeout(fn.id);
+                fn.id = setTimeout(() => {
+                    fn();
+                },delay)
+            }
+        }
+
+        const debounceNameSearch = debounce(handleNameSearch, 2000);
+        oInput.addEventListener('keyup',debounceNameSearch) 
     </script>
 </body>
 </html>

@@ -31,3 +31,23 @@
     - "dev":"json-server --watch db.json --port 3001"
     - npm run dev
   - 访问
+
+- 全栈防抖
+  - 前后端分离 解耦
+    - 前端 live-server 5500
+      fetch url
+    - 后端 json-server 3001 
+      url 接口服务
+    - api 接口
+
+- filter map 
+  - 都是Array.prototype上的方法，所有数组都有
+  - filter 数组过滤 回调函数返回值是否为true
+  - map 数组映射，回调函数的返回值为新的数组 原有数组不能满足需求
+  - foreach 迭代每一项 不需要返回
+
+- 防抖
+  - 将要执行的函数交给一个debounce()高阶函数去优化
+  - 减少执行次数 只执行最后一次
+  - 依靠 setTimeout() 和 clearTimeout() 来实现
+  

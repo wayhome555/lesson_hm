@@ -7,19 +7,15 @@
 </head>
 <body>
     <script>
-        var name = 'windowName';
-        var _this = a;
         var a ={
         name : 'x',
         func1:function(){
             console.log(this.name)
         },
         func2:function(){
-            //console.log(this)
-            
-            setTimeout(()=>{ // 普通函数
-                _this.func1()
-            },1000)
+            setTimeout(function(){ // 普通函数
+                this.func1()
+            }.call(a),1000) //立即执行回调函数 有点意思
         }
     }
     a.func2()

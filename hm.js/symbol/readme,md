@@ -1,0 +1,20 @@
+# Symbol
+
+- 唯一值
+  - 用Symbol函数来声明
+  - 给一个label 可选
+  - 返回值唯一值
+  - 常用于对象字面量 不会被覆盖
+    大厂大型项目 对象复杂 难维护
+
+  - Object.keys() 对象的 键名数组，不包括Symbol值
+  - Object.values() 对象的 键值数组，不包括Symbol值
+  - Object.entries() 对象的 键值对数组，不包括Symbol值
+  
+- 可迭代对象
+  Object.getOwnPropertySymbols() 对象的 键值对数组，只包括Symbol值
+  - 虽然 Symbols enumerable 为 true 当仍不可枚举
+    因为Symbols 设计独特 就是提供唯一值的 只能通过
+    getOwnPropertySymbols() 来获取
+
+- ownProperty? 自己的而非继承的

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 为什么要引入symbol
+        const wes = Symbol('wes');
+        let name = 'xbk';
+        // key 为字符串 多次定义 最后一个生效
+        // symbol 可以代替字符串作为key
+        const classMates = {
+            "cy":1,
+            "cy":2,
+            [name]:'strong',
+            [Symbol('mark')]:{grade:50,gender:'male'},
+            [Symbol('olivia')]:{grade:80,gender:'female'}         
+        }
+        // 二维数组
+        for(let [key,val] of Object.entries(classMates)){
+            console.log([key,val])
+        }
+
+        for(const person in classMates){
+            console.log(person,classMates[person]);
+        }
+
+        const syms = Object.getOwnPropertySymbols(classMates);
+
+        console.log(syms);
+
+        const data = syms.map(sym=>{
+            classMates[syms].grade
+        })
+        console.log(data);
+        
+    </script>
+</body>
+</html>

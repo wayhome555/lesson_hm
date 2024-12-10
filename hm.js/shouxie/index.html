@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+var a = {
+  name: 'Cherry',
+  fn: function(a, b) {
+    console.log(this.name)
+    // + 两边都是数字就是加法 如果不是 就是字符串拼接
+    // 隐式转换
+    // [1,2].toString() = 1,2
+    // String(undefined) = undefined
+    // [1,2] + undefined = 1,2undefined
+    console.log(a + b)
+  }
+}
+// b是指向a的fn的引用
+var b = a.fn;
+// 将b的this指向a
+// apply 和 call 返回的是函数执行的结果
+console.log(b.apply(a,[1, 2])) //apply 接收的是数组
+console.log(b.call(a,1, 2)) // call 接收的是参数列表
+console.log(b.bind(a,1,2)()) // bind 返回的是一个函数 不会执行
+</script>
+</body>
+</html>

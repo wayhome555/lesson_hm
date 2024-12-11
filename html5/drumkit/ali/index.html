@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:75px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿里双11</title>
+    <script>
+        // 阻塞 用来动态设置 html 的  font-size
+        // 匿名函数自执行
+        (function(){
+            //console.log('立即执行');
+            function calc(){
+                const w = document.documentElement.clientWidth;
+                console.log(w);
+                document.documentElement.style.fontSize = w/10 + 'px'; 
+            }
+            calc();
+            // 事件处理程序，它会在浏览器窗口的大小发生改变时被触发
+            window.onresize = function(){
+                calc();
+            }
+        })()
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <div style="width:10rem;height:2rem;background-color: red;"></div>
+    <div style="font-size: 0;">
+    <div style="width:5rem;height:2rem;background-color: green;display: inline-block;font-size:20px;color:whiter">111</div>
+    <div style="width:5rem;height:2rem;background-color: blue;display: inline-block;">222</div>
+    </div>
+    </div>
+</body>
+</html>

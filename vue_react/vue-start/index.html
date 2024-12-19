@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3</title>
+    <!-- 不是本地 通过 cdn 引入
+    cdn - 内容分发网络
+    静态资源（html,css,js,images） 动态（java,node,数据库，服务器集群）
+    cdn 快速内容访问和发布的机制 -->
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- vue3 工作的挂载点 -->
+    <!-- DOM appendChild 性能不好 -->
+    
+    <div id="root">
+        <h1>{{str}} 走向 {{LLM}} 智能前端</h1>
+        <p>Count:{{count}}</p>
+        <button @click="increment">+1</button>
+    </div>
+    <script type="module">
+        const{
+            createApp, // 创建应用
+            ref // 响应式
+        } = Vue;
+
+        createApp({
+            // 数据 响应式
+            setup(){
+                const count = ref(0); // 响应式对象
+                const str = 'hello vue'
+                const increment = () => {
+                    count.value++;
+                }
+                return {
+                    LLM:'Llama3',
+                    str,
+                    count,
+                    increment
+                }
+            }
+
+        }).mount('#root') // 挂载点
+
+    </script>
+</body>
+</html>

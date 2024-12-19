@@ -14,4 +14,4 @@ console.log([] + []) // ""
 
 console.log({} + {}) // [object Object][object Object]
 
-console.log(true == 2) // false
+console.log(true == '2') // false

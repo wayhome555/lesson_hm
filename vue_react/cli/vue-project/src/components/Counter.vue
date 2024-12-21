@@ -1,14 +1,12 @@
 <template>
     <div class='counter'>
-        <p>Count:{{ count }}</p>
-        <button @click={increment}>+1</button>
+        <p>Count: {{ count }}</p>
+        <button @click="increment">+1</button>
     </div>
 </template>
 
 <script setup>
-import { 
-    ref,
-} from 'vue'
+import { ref } from 'vue'
 
 const count = ref(0)
 
@@ -20,10 +18,10 @@ const increment = () => {
 <style>
 .counter {
     text-align: center;
-    font-size:16px
+    font-size: 16px;
 }
-button{
-    padding:10px 20px;
-    font-size:16px;
+button {
+    padding: 10px 20px;
+    font-size: 16px;
 }
 </style>

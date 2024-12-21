@@ -1,18 +1,18 @@
-// // Object => Primitive
+// Object => Primitive
 
-// let specialObj = {
-//     valueOf:function(){
-//         console.log('calling valueof')
-//         return 123;
-//     },
-//     toString:function(){
-//         console.log('calling toString')
-//         return '456';
-//     }
-// }
+let specialObj = {
+    valueOf:function(){
+        console.log('calling valueof')
+        return 123;
+    },
+    toString:function(){
+        console.log('calling toString')
+        return '456';
+    }
+}
 
-// console.log(Number(specialObj));  
-// console.log(String(specialObj)); 
+console.log(Number(specialObj)); // 123
+console.log(String(specialObj)); // 456
 
 let objectWithoutPrimitiveValueOf = {
     valueOf:function(){
@@ -28,5 +28,5 @@ let objectWithoutPrimitiveValueOf = {
 try{
 console.log(Number(objectWithoutPrimitiveValueOf));}
 catch(e){
-    console.log(e);
+    console.log(e); // TypeError: Cannot convert object to primitive value
 }

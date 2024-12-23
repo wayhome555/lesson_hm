@@ -26,7 +26,6 @@
 
   - 组件 = 组（html + css + js）和完成一个功能的拆分
 
-
   - 组件类（函数）
     - 封装组件 import + export default 导入导出完成功能的拆分
     - 函数（构造）组件 return html是必须的

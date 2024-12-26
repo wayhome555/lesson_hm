@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <ul id = memberList>
+    </ul>
+    <script>
+        const oUL = document.getElementById('memberList');
+        // fetch ? js主动拉取数据的方式
+        // fetch 的前辈 XMLHttpRequest
+        const xhr = new XMLHttpRequest(); // 实例化xhr请求对象
+        xhr.open('GET','https://api.github.com/orgs/lemoncode/members',false); // 打开请求
+        xhr.onreadystatechange = function(){ // 监听状态
+            if(xhr.readyState === 4 && xhr.status === 200){ // ztate 状态 4 完成 status 状态码 200 成功
+                // console.log(xhr.responseText);
+                const data = JSON.parse(xhr.responseText);
+                oUL.innerHTML = data.map(member => `
+                <li>
+                    <img src="${member.avatar_url}" alt="">
+                    <span>${member.login}</span>
+                </li>
+                `).join('');
+            }
+        }
+        xhr.send(); // 发送请求
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue2-todos</title>
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/3.2.31/vue.global.min.js"></script>
+    <style>
+        .done{
+            color:gray;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <input type="text" v-model="title" @keydown.enter="addTodo"> 
+        <ul>
+            <li v-for="todo in todos">
+                <input type="checkbox" v-model="todo.done">
+                <span :class="{done:todo.done}">{{todo.title}}</span>
+            </li>
+        </ul>
+        <div>
+            <label>
+            <span>全选</span><input type="checkbox" v-model="allDone">
+            </label>
+            <span>{{active}} / {{all}}</span>
+        </div>
+    </div>
+
+    <script>
+        const app = {
+            data(){ // 数据
+                return {
+                    title:'',
+                    todos:[
+                        {title:'eat',done:true},
+                        {title:'sleep',done:false},
+                        {title:'code',done:false}
+                    ],
+                }
+            },
+            computed:{ // 计算属性
+                all(){
+                    return this.todos.length
+                },
+                active(){
+                    return this.todos.filter(todo => !todo.done).length // 过滤出未完成的任务
+                },
+                // get set
+                allDone:{
+                    get(){
+                        return this.active === 0;
+                    },
+                    set(val){
+                        this.todos.forEach(todo => (todo.done = val))
+                    }
+                }
+            },
+            methods:{ // 方法
+                addTodo(){
+                    if (this.title.trim()) {
+                        this.todos.push({title: this.title, done: false});
+                        this.title = '';
+                }
+            }
+        }
+    }
+        Vue.createApp(app).mount('#app')
+
+    </script>
+</body>
+</html>

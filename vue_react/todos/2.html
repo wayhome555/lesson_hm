@@ -5,39 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vue3-todos</title>
     <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/3.2.31/vue.global.min.js"></script>
+    <style>
+        .done{
+            color:gray;
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <h2>
-            {{title}}
-            <input type="text" v-model="title">
-        </h2>
-        <h1 @click="add">{{count}} * 2 = {{double}}</h1>
+        <h2>{{ title }}</h2>
+        <input type="text" v-model="title" @keydown.enter="addTodo"> 
+        <ul>
+            <li v-for="(todo, index) in todos" :key="index">
+                <input type="checkbox" v-model="todo.done">
+                <span :class="{ done: todo.done }">{{ todo.title }}</span>
+            </li>
+        </ul>
+        <div>
+            <label>
+                <span>全选</span><input type="checkbox" v-model="allDone">
+            </label>
+            <span>{{ active }} / {{ all }}</span>
+        </div>
     </div>
+
     <script>
-        // 组合式API 取代选项式
-        const {ref,computed} = Vue;
+        const { createApp, ref, computed } = Vue;
 
-        let app = {
+        createApp({
             setup() {
-                let title = ref('todos');
-                
-                // count 相关模块
-                let count = ref(0);
-                const double = computed(() => count.value * 2);
-                function add() {
-                    count.value++;
-                }
-                return {
-                    count,
-                    double,
-                    add,
-                    title
-                }
-            }
-        }
+                const title = ref('');
+                const todos = ref([
+                    { title: 'eat', done: false  },
+                    { title: 'sleep', done: false },
+                    { title: 'code', done: false }
+                ]);
 
-        Vue.createApp(app).mount('#app')
+                const all = computed(() => todos.value.length);
+                const active = computed(() => todos.value.filter(todo => !todo.done).length);
+                const allDone = computed({
+                    get: () => active.value === 0,
+                    set: (value) => {
+                        todos.value.forEach(todo => todo.done = value);
+                    }
+                });
+
+                function addTodo() {
+                    if (title.value.trim()) {
+                        todos.value.push({ title: title.value, done: false });
+                        title.value = '';
+                    }
+                }
+
+                return {
+                    title,
+                    todos,
+                    all,
+                    active,
+                    allDone,
+                    addTodo
+                };
+            }
+        }).mount('#app');
     </script>
 </body>
 </html>

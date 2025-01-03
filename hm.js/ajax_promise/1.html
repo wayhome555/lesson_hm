@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="members">
+
+    </ul>
+</body>
+<script>
+    // 函数 url
+    // js 主动发起 http 请求 fetch XMLHttpRequest
+    // 基于promise
+    // 默认get请求
+    console.log(fetch('https://api.github.com/orgs/lemoncode/members'))
+    // .then(res => res.json()) // 把响应体二进制转成json
+    // .then(data =>{
+    //     //console.log(data)
+    //     document.getElementById('members').innerHTML = data.map(member => `
+    //         <li>
+    //           <a href="${member.html_url}">${member.login}</a>
+    //         </li>
+    //     `).join('')
+    // })
+
+</script>
+</html>

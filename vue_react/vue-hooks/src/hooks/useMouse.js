@@ -29,10 +29,3 @@ export function useMouse() {
 }
  
 
-export function useMemo() {
-    console.log('useMemo')
-}
-
-export default {
-    name: 'useMouse'
-}

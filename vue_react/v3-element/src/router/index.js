@@ -43,12 +43,13 @@ const router = createRouter({
 // 路由守卫
 router.beforeEach((to,from,next) => {
     document.title = to.meta.title || '掘金'
-    if(to.meta.requireLogin){
-        next('/Login')
-        return false
-    }else{
-        next()
-    }
+    // if(to.meta.requireLogin){
+    //     next('/Login')
+    //     return false
+    // }else{
+    //     next()
+    // }
+    next()
 })
 
 export default router

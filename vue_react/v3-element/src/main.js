@@ -3,10 +3,33 @@ import './style.css'
 import App from './App.vue'
 import {
   ElButton,
-} from 'element3'
-import 'element3/lib/theme-chalk/index.css'
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElContainer,
+  ElHeader,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu,
+  ElAside,
+  ElMain,
+} from 'element-plus'
+import 'element-plus/dist/index.css'
 import router from './router'
 import { createPinia } from 'pinia'
 
-// 启用UI组件库 开发效率提升了
-createApp(App).use(createPinia()).use(router).use(ElButton).mount('#app')
+createApp(App)
+  .use(router)
+  .use(createPinia())
+  .use(ElButton) // UI 组件库 按需使用
+  .use(ElForm)
+  .use(ElFormItem)
+  .use(ElInput)
+  .use(ElContainer)
+  .use(ElHeader)
+  .use(ElMenu)
+  .use(ElMenuItem)
+  .use(ElSubMenu)
+  .use(ElAside)
+  .use(ElMain)
+  .mount('#app')
